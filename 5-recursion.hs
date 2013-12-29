@@ -1,7 +1,7 @@
 -- Raise x to the power y, using recursion
 -- For example, power 5 2 = 25
 power :: Int -> Int -> Int
-power x 1 = x
+power x 0 = 1
 power x y = x * (power x (y-1))
 
 -- create a list of length n of the fibbonaci sequence in reverse order
