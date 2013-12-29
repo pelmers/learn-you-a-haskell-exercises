@@ -42,7 +42,7 @@ hoSumInts = higherOrderSum (\x -> x)
 --  - A function to apply to each value, op :: Int -> Int
 --  - A function to apply between each value, f :: Int -> Int -> Int
 --  - A value to return in the base case when a > b, z :: Int
-higherOrderSequenceApplication op f z a b = foldr f z [op x | x <- [a..b]]
+higherOrderSequenceApplication op f z a b = foldr f z $ map op [a..b]
 
 -- Define a factorial method using the higherOrderSequenceApplication
 hoFactorial :: Integer -> Integer
