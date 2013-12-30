@@ -14,8 +14,8 @@ sq x = (sumInts 0 x) * 2 - x
 -- Sum the squares between two numbers. This function should be similar to the sumInts function
 sumSquares :: Int -> Int -> Int
 sumSquares a b
-    | a > b = 1
-    | otherwise = b*b + sumSquares a (b-1)
+    | a > b = 0
+    | otherwise = sq b + sumSquares a (b-1)
 
 -- Define a higher order sum function which accepts an (Int -> Int) function to apply to all integers between two values.
 -- Again this should look similar to the sumInts and sumSquares functions
@@ -46,4 +46,4 @@ higherOrderSequenceApplication op f z a b = foldr f z $ map op [a..b]
 
 -- Define a factorial method using the higherOrderSequenceApplication
 hoFactorial :: Integer -> Integer
-hoFactorial = higherOrderSequenceApplication (\x -> x) (*) 1 1
+hoFactorial = higherOrderSequenceApplication id (*) 1 1
